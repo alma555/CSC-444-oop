@@ -1,0 +1,88 @@
+Aggregation: an object contains a reference to another object
+Container: ???
+Composition: a object is only used inside another object
+
+Docstrings: documentation strings
+	multi-line string lierals used to document a specific section of code
+	accessible under __doc__
+	one-liners: very short explanations, triple quotes """ """
+	multi-line:
+		"""
+		start with a description
+		explain the arguments
+		explain the return
+		"""
+	make docstrings for both a class and the methods of the class
+Programming by contract
+	defining formal, precise, and verifiable specifications for software components
+	like a "contract" which explictly states what a code expects
+	precondition: what inputs are valid for a function to complete properly
+	postcondition: what a function must result in
+	invariants: the internal conditions that must not be modified
+Universal Modeling Language:
+	standard for designing software systems
+	"UML as sketch": only a broad outline of a system
+	CASE tools: generate UML from code and code outline from UML
+
+args: lets you pass an arbitrary amount of arguments; 3,4,5
+**kwargs: treated as a dictionary of all keyword argumnts; a=3,b=4,c=5
+abstraction v encapsulation
+	abstraction about a client's view of class being convinient and simple
+	encapsulation: about hiding the details of the code
+	closely related but not the same
+	encapsulation is the process, abstraction is the goal
+Polymorphism: multiple classes have methods with the same name
+	cars all have acceleration and brake pedals, and in the same spaces
+	+ and - operators have this in Python; you can plus strings
+Inheritance: classes can be extended into subclasses with different characteristics
+	subclasses can override methods of the base class, or add new ones
+Abstract class:  a class which cannot be instantiated directly, and can only be a base for subclasses
+	from abc import ABC, abstractmethod
+	class duck(ABC)
+		@abstractmethod
+		def dothings(self):
+			raise NotImplementedError
+One subclass can inherit from multiple classes; python will resolve conflicts based on C3 linearization
+	local precedence order (which is declared first)
+	consistency (superclasses can nest)
+Composition: an object instantiates sub-objects, but they don't inherit from it
+	a duck has a quack, which is its own class
+	this is preferable to inheritance in highly complex situations
+Comparing and cloning objects
+	you can compare objects in python, not necessraily elsewhere
+	a shallow copy (.copy) copies only pointers to sub-objects
+	[1,0x344343] vs [1,[0,1]]
+	a deep copy (.deepcopy) copies everything recursively
+	you can define your own methods for __copy__() and __deepcopy__()
+enums: used to represent a fixed set of related constants	
+
+using global variables is dangerous and bad
+	hard to keep track of constantly changable global variables,especially in large projects
+	security concerns ; anyone working on any part of a program will be able to access anything
+OOP: paradigm of Objects, which can contain code & data
+class methods:
+	__init__(): runs automatically. reserved word. not strictly required but good practice. you should make visible default values
+local variable: used within a method
+instance variable: used al throughout an object
+instantiation processs: 
+	first, ask Python to create an object from a specific class
+	second, Python allocates space in memory for the object then calls __init__()
+	third, __init__ runs
+	(other stuff)
+Object manager object:
+	used if you have a list or dictionary of objects; a superclass which can store the objects and call methods on them
+you can change the implementation of something without changing the interface - the user doesnt need to know anything behind the scenes
+Objects loosely own their data: you can override it, but you probably shouldn't.
+Getter: gets an instance variable
+Setter: sets an instance variable
+Decorator function: function that makes a function based on a function
+	woah... i never knew you could put "def" inside a function
+	ie:
+	def decorator(foo):
+		def decoratedfunc(bar):
+			foo(bar)
+		return decoratedfunc
+	bultin decorators:
+		property: define getter and setter methods as if they were variables. idiotproof!
+	DO THIS ALWAYS
+
