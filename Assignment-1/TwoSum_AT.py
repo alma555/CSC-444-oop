@@ -10,16 +10,16 @@ class Solution:
             target (int): the target number
 
         Return: 
-            list: two numbers which sum to target
+            list: indices of two numbers which sum to target
         """
-
+        
         #precondition: check that all inputs are as specified
-        if nums != list:
-            raise ValueError('target must be a list of integers')
-        for i in list:
-            if i != int:
-                raise ValueError('target must be a list of integers')
-        if target != int:
+        if isinstance(nums,list) != True:
+            raise ValueError('input must be a list of integers')
+        for i in nums:
+            if isinstance(i,int) != True:
+                raise ValueError('input must be a list of integers')
+        if isinstance(target,int) != True:
             raise ValueError('target must be an integer')
         
         hash = {}
@@ -31,7 +31,7 @@ class Solution:
             hash[nums[i]] = i
         
         #postcondition: check that output is as specified
-        if result != list:
-            raise ValueError('output was not a list; output = ', output)
+        if isinstance(result, list) != True:
+            raise ValueError('result was not a list; result = ', result)
 
         return result
