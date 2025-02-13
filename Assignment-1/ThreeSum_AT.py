@@ -25,17 +25,17 @@ class ThreeSum(Solution):
 
         result = []
         for i in range(len(nums)):
-            temp_nums = nums
+            temp_nums = nums.copy()
             current = temp_nums.pop(i)
             diff = target - current
-            possible_result = self.twoSum(temp_nums, diff).append(diff)
+            possible_result = self.twoSum(temp_nums, diff)
+            if possible_result != None:
+               possible_result.append(i)
             total = 0
-            print(possible_result)
             for j in possible_result:
                 total += nums[j]
             if total == target:
-                result = others
-                break
+                result = possible_result
 
         #postcondition: check that output is as specified
         if isinstance(result, list) != True:
@@ -43,11 +43,18 @@ class ThreeSum(Solution):
         return result
 
     def test(self):
-        if self.threeSum([8,3,11,1],15): #nums[1] + nums[2] + nums[3]
+        if self.threeSum([8,3,11,1],15) == [1,2,3]: #nums[1] + nums[2] + nums[3]
             print("Test 1 passed")
+        else: print("Test 1 failed")
+        if self.threeSum([0,0,8,1],8) == [0,1,2]: #nums[0] + nums[1] + nums[2]
+            print("Test 2 passed")
+        else: print("Test 2 failed")
+        if self.threeSum([-6,-6,-6,-6,-6,-6],1) == []: #no possible answer
+            print("Test 3 passed")
+        else: print("Test 3 failed")
 
 solve = ThreeSum()
 solve.test()
-#print(test.threeSum((8,3,11,1),15)) #nums[1] + nums[2] + nums[3]
-#print(test.threeSum((0,0,8,1),8)) #nums[0] + nums[1] + nums[2]
-#print(test.threeSum(-6,-6,-6,-6),1) #no numbers add up to 1
+
+#The time complexity of twoSum is O(n)
+#The time complexity of threeSum is O(n^2); not very good!. i bet there's a way to make it faster with hashing, but that's not part of the assignment
