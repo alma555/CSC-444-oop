@@ -1,0 +1,7 @@
+MacBook Air with M3,1099.00
+LEGO Race Car,3.95,10,19.99
+Egg,0.50,12,5.00
+Cat Food,0.75,24,14.99
+USB-C Cord,9.99
+Mouse,29.99
+Desk Clock,5.99,30,150.00

@@ -1,0 +1,3 @@
+Inheritance is used in the relationship between Item.py and DiscountedItem.py
+Polymorphism is also used in this relationship; through get_price(), which is calculated differently but called through the same methods.
+Encapsulation is used throughout the program; I can't point to any specific place, because the whole object-oriented structure of the program makes it encapsulated. Every part of the program is contained in its own file, and while writing code I wrote it all almost entirely seperately; I just made my programs recieve and pass the values they needed to, and let future-me worry about the rest. 
